@@ -1,7 +1,8 @@
-const books = document.querySelectorAll('.book');
-console.log(books);
+const firstBook = document.querySelector('.one');
 
 let log = console.log;
+
+// log(books);
 
 let myLibrary = [
   {
@@ -22,13 +23,17 @@ function Book() {
   // the constructor...
 }
 
+// function bookOne() {
+//   log(myLibrary[0]);
+// }
+
+// bookOne();
+
 function addBookToLibrary() {
   myLibrary.forEach((book) => {
-    books[0].textContent = book;
-    books[1].innerText = book;
-    log(books[0].id);
-    // console.log(books, 'books');
-    // console.log(book, 'book');
+    const bookTitle = document.createTextNode(book.book);
+    firstBook.appendChild(bookTitle);
+    log(book);
   });
 }
 
