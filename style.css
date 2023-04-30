@@ -66,3 +66,7 @@ h2 {
   background: lightslategray;
   color: black;
 }
+
+.book {
+  display: grid;
+}

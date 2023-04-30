@@ -2,9 +2,9 @@ const firstBook = document.querySelector('.one');
 
 let log = console.log;
 
-// log(books);
+log(firstBook);
 
-let myLibrary = [
+let startingLibrary = [
   {
     book: 'Rich Dad Poor Dad',
     author: 'Robert Kiyosaki',
@@ -19,22 +19,36 @@ let myLibrary = [
   },
 ];
 
+let myLibrary = [];
+
 function Book() {
   // the constructor...
 }
 
-// function bookOne() {
-//   log(myLibrary[0]);
-// }
-
-// bookOne();
-
-function addBookToLibrary() {
-  myLibrary.forEach((book) => {
-    const bookTitle = document.createTextNode(book.book);
-    firstBook.appendChild(bookTitle);
-    log(book);
+function startingBooks() {
+  Object.entries(startingLibrary).forEach(([key, value]) => {
+    console.log(key, value);
   });
 }
 
-addBookToLibrary();
+// function addBookToLibrary() {
+//   const keys = Object.keys(myLibrary);
+//   keys.forEach((key) => {
+//     console.log(myLibrary[key]);
+//     const bookInfo = document.createTextNode(myLibrary[key]);
+//     firstBook.appendChild(bookInfo);
+//   });
+// }
+
+// function addBookToLibrary() {
+//   myLibrary.forEach((bookDetails) => {
+
+//     const bookInfo = document.createTextNode(bookDetails.book);
+//     firstBook.appendChild(bookInfo);
+//     // log(bookDetails);
+//   });
+// }
+
+// addBookToLibrary();
+
+startingBooks();
