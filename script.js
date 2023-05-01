@@ -1,7 +1,39 @@
 let log = console.log;
-log(addNewBookButton);
+const closeBook = document.querySelector('.exit');
+const form = document.querySelector('form');
+const openButton = document.querySelector('[data-button-target]');
+const closeButton = document.querySelector('[data-close-button]');
+const overlay = document.getElementById('overlay');
 
-function bookFrom() {}
+openButton.addEventListener('click', () => {
+  const modal = document.querySelector(button.dataset.buttonTarget);
+  openModal(modal);
+});
+
+closeButton.addEventListener('click', () => {
+  const modal = button.closest('form');
+  closeModal(modal);
+});
+
+function openModal(modal) {
+  if (modal == null) return;
+  modal.classList.add('active');
+  overlay.classList.add('active');
+}
+
+function closeModal(modal) {
+  if (modal == null) return;
+  modal.classList.remove('active');
+  overlay.classList.remove('active');
+}
+
+closeBook.addEventListener('click', () => {
+  form.style.display = 'none';
+});
+
+function bookForm() {
+  form.style.display = 'block';
+}
 
 // const book1 = {
 //   book: 'Rich Dad Poor Dad',

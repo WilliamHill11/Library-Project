@@ -12,15 +12,16 @@
     <div class="header">
       <h1 class="title">My Library</h1>
       <img src="img/Book Icon.svg" alt="book" height="50px">
+      <button data-button-target="#formID" class="add" onclick="bookForm()">+</button>
     </div>
     <h2>Library Collection</h2>
-    <div class="addNewBookButton">
-      <button class="add" onclick="bookForm()">+</button>
-    </div>
     <div class="wrapper">
-      <form action="" id="formID" style="display: block;">
-        <div class="form"> 
-          <h3>New Book</h3>
+      <form action="" id="formID" style="display: none;">
+        <div class="form">
+          <div class="bookHeader">
+            <h3>New Book</h3>
+            <div class="exit" data-close-button >&#10006;</div>
+          </div> 
           <div class="input">
             <label for="bookTitle">Book:</label>
             <input type="text" name="bookTitle" id="bookTitle" required >
@@ -44,26 +45,27 @@
           <input type="submit" value="Add Book">
         </div>
       </form>
-    </div>
-    <div class="library">
-      <div class="book one">
-          <h3>Rich Dad Poor Dad</h2>
-          <p>Author: Robert Kiyosaki</p>
-          <p>Pages: 300</p>
-          <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-          </label>
+      <div class="library">
+        <div class="book one">
+            <h3>Rich Dad Poor Dad</h2>
+            <p>Author: Robert Kiyosaki</p>
+            <p>Pages: 300</p>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="book two">
+          <h3>The Slight Edge</h2>
+            <p>Author: Jeff Olson</p>
+            <p>Pages: 230</p>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+        </div>
       </div>
-      <div class="book two">
-        <h3>The Slight Edge</h2>
-          <p>Author: Jeff Olson</p>
-          <p>Pages: 230</p>
-          <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-          </label>
-      </div>
     </div>
+    <div id="overlay" ></div>
   </body>
 </html>
