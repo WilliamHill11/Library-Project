@@ -1,23 +1,20 @@
-const firstBook = document.querySelector('.one');
+const firstBookTitle = document.querySelector('.titleOne');
 
 let log = console.log;
 
-log(firstBook);
+const book1 = {
+  book: 'Rich Dad Poor Dad',
+  author: 'Robert Kiyosaki',
+  pages: '300',
+  read: 'read',
+};
 
-let startingLibrary = [
-  {
-    book: 'Rich Dad Poor Dad',
-    author: 'Robert Kiyosaki',
-    pages: '300',
-    read: 'read',
-  },
-  {
-    book: 'The Slight Edge',
-    author: 'Jeff Olson',
-    pages: '230',
-    read: 'read',
-  },
-];
+const book2 = {
+  book: 'The Slight Edge',
+  author: 'Jeff Olson',
+  pages: '230',
+  read: 'read',
+};
 
 let myLibrary = [];
 
@@ -26,9 +23,14 @@ function Book() {
 }
 
 function startingBooks() {
-  Object.entries(startingLibrary).forEach(([key, value]) => {
-    console.log(key, value);
-  });
+  const title = book1.book;
+  const ok = document.createTextNode(book1.author);
+  firstBookTitle.appendChild(ok);
+  const author = book1.author;
+  const pages = book1.pages;
+  let read = book1.read;
+
+  log(title);
 }
 
 // function addBookToLibrary() {
