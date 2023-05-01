@@ -11,21 +11,51 @@
   <body>
     <h1 class="title">My Library</h1>
     <div class="addNewBookButton">
-      <button>+</button>
+      <button class="add" onclick="bookForm()">+</button>
     </div>
+    <form action="" id="formID" style="display: block;">
+      <div>
+        <label for="bookTitle">Book:</label>
+        <input type="text" name="bookTitle" id="bookTitle" required >
+      </div>
+
+      <div>
+        <label for="">Author:</label>
+        <input type="text" name="author" id="author" required >
+      </div>
+
+      <div>
+        <label for="pages">Pages</label>
+        <input type="number" name="pages" id="pages" required >
+      </div>
+
+      <div>
+        <label for="read">Did You Read?</label>
+        <input type="text" name="read" id="read" required >
+      </div>
+
+      <input type="submit">
+    </form>
     <h2>Library Collection</h2>
     <div class="library">
       <div class="book one">
-        <div class="titleOne"></div>
-        <div class="authorOne"></div>
-        <div class="pagesOne"></div>
-        <div class="readOne"></div>
+          <h3>Rich Dad Poor Dad</h2>
+          <p>Author: Robert Kiyosaki</p>
+          <p>Pages: 300</p>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
       </div>
-      <div class="book two"></div>
-      <div class="title"></div>
-      <div class="author"></div>
-      <div class="pages"></div>
-      <div class="read"></div>
+      <div class="book two">
+        <h3>The Slight Edge</h2>
+          <p>Author: Jeff Olson</p>
+          <p>Pages: 230</p>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+      </div>
     </div>
   </body>
 </html>
