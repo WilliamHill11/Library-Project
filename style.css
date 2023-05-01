@@ -5,17 +5,32 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+  margin: 0;
+}
+
+:root {
+  --main-color: #2196f3;
 }
 
 body {
-  background-color: sandybrown;
+  background-color: rgb(224, 217, 217);
+}
+
+.header {
+  background-color: var(--main-color);
+  padding: 1em;
+  display: flex;
+  gap: 1em;
+  box-shadow: 5px 5px 5px hsl(0, 1%, 37%);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .title {
   display: flex;
   justify-content: center;
   font-size: 4rem;
-  font-weight: bold;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -23,6 +38,7 @@ body {
   display: flex;
   justify-content: center;
   height: 3em;
+  padding: 1em;
 }
 
 .add {
@@ -50,7 +66,7 @@ h2 {
     'Lucida Sans', Arial, sans-serif;
   padding: 1em;
   text-decoration: underline;
-  color: olivedrab;
+  color: rgb(0, 0, 0);
 }
 
 .library {
@@ -60,18 +76,16 @@ h2 {
 }
 
 .book {
-  width: 250px;
-  height: 300px;
-  border: 5px solid black;
-  border-radius: 10px;
-  background: lightslategray;
-  color: black;
-}
-
-.book {
   display: grid;
   justify-items: center;
   align-content: space-evenly;
+  width: 225px;
+  height: 300px;
+  border: 3px solid var(--main-color);
+  box-shadow: 1px 1px 2px var(--main-color);
+  border-radius: 15px;
+  background-color: white;
+  color: black;
 }
 
 .switch {
@@ -114,11 +128,11 @@ h2 {
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: var(--main-color);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px var(--main-color);
 }
 
 input:checked + .slider:before {
@@ -134,4 +148,57 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2em;
+}
+
+/* form */
+.form {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  background-color: white;
+  border: 2px solid var(--main-color);
+  box-shadow: 1px 1px 2px var(--main-color);
+  border-radius: 15px;
+  width: 250px;
+  height: 350px;
+  padding: 1em;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+input {
+  width: 100%;
+  outline: none;
+  border: 2px solid rgb(6, 6, 114);
+}
+
+input[type='submit'] {
+  border-radius: 20px;
+  background-color: var(--main-color);
+}
+
+.input {
+  width: 100%;
+}
+
+label {
+  display: flex;
+  padding-bottom: 0.3em;
+}
+
+.read {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: baseline;
+  align-content: stretch;
 }
