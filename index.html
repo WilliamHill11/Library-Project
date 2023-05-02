@@ -12,12 +12,12 @@
     <div class="header">
       <h1 class="title">My Library</h1>
       <img src="img/Book Icon.svg" alt="book" height="50px">
-      <button data-button-target="#formID" class="add" onclick="bookForm()">+</button>
+      <button data-button-target=".form" class="add" onclick="bookForm()">+</button>
     </div>
     <h2>Library Collection</h2>
     <div class="wrapper">
       <form action="" id="formID" style="display: none;">
-        <div class="form">
+        <div class="form"">
           <div class="bookHeader">
             <h3>New Book</h3>
             <div class="exit" data-close-button >&#10006;</div>
@@ -42,7 +42,7 @@
             <input type="checkbox" name="read" id="read" >
           </div>
 
-          <input type="submit" value="Add Book">
+          <input type="submit" value="Add Book" id="formSubmit">
         </div>
       </form>
       <div class="library">
