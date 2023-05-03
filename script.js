@@ -43,7 +43,7 @@ formSubmit.addEventListener('click', (e) => {
     const modal = closeButton.closest('form');
     closeModal(modal);
     form.style.display = 'none';
-    log(e);
+    addBookToLibrary();
   }
 });
 
@@ -51,13 +51,16 @@ function resetBook() {}
 
 let myLibrary = [];
 
-function Book() {
-  // the constructor...
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
 }
 
-function addBookToLibrary() {}
-
-addBookToLibrary();
+function addBookToLibrary() {
+  const title = new Book(this.title);
+}
 
 // const book1 = {
 //   book: 'Rich Dad Poor Dad',
