@@ -40,9 +40,14 @@ function bookForm() {
 formSubmit.addEventListener('click', (e) => {
   if (form.checkValidity()) {
     e.preventDefault();
+    const modal = closeButton.closest('form');
+    closeModal(modal);
+    form.style.display = 'none';
     log(e);
   }
 });
+
+function resetBook() {}
 
 let myLibrary = [];
 
