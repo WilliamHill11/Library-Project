@@ -164,6 +164,15 @@ label {
   color: black;
 }
 
+.newBookTitle {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.newBookContent {
+  font-size: 0.75rem;
+}
+
 .switch {
   position: relative;
   display: inline-block;
