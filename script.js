@@ -57,16 +57,23 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+Book.prototype.changeReadStatus = function () {
+  this.read = !this.read;
+};
+
 function addBookToLibrary() {
-  let newBook = new Book(
+  const newBook = new Book(
     document.querySelector("input[name='bookTitle']").value,
     document.querySelector("input[name='author']").value,
     document.querySelector("input[name='pages']").value,
-    document.querySelector("input[name='read']").value
+    read
+    // document.querySelector("input[name='read']").value
   );
+
   myLibrary.push(newBook);
-  const book = document.createElement('div');
   form.reset();
+  const book = document.createElement('div');
+
   myLibrary.forEach((value) => {
     libraryWrapper.appendChild(book);
     book.classList.add('book');
@@ -77,20 +84,24 @@ function addBookToLibrary() {
       value.author +
       '</p>  <p> Pages: ' +
       value.pages +
-      '</p>';
+      '</p> <button class="readingStatus">Status</button>';
   });
 }
 
-// const book1 = {
-//   book: 'Rich Dad Poor Dad',
-//   author: 'Robert Kiyosaki',
-//   pages: '300',
-//   read: 'read',
-// };
+newBook.changeReadStatus();
 
-// const book2 = {
-//   book: 'The Slight Edge',
-//   author: 'Jeff Olson',
-//   pages: '230',
-//   read: 'read',
-// };
+function readStatus() {
+  const read = document.querySelector('.readingStatus');
+  if (read.innerHTML === 'Read') {
+    read.innerHTML = 'Not Read';
+  } else {
+    read.innerHTML = 'Read';
+  }
+}
+
+// function isChecked() {
+//   if (document.getElementById('read').checked) {
+//   }
+// }
+
+/* <label class="switch"> <input type="checkbox"> <span class="slider round"></span></label>' */

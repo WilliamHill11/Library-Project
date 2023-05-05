@@ -26,19 +26,14 @@ body {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 11;
 }
-
-/* img {
-  display: flex;
-  float: left;
-} */
 
 .title {
   display: flex;
   justify-content: center;
-  font-size: 4rem;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 3.5rem;
+  font-family: 'Bruno Ace SC', cursive;
 }
 
 .add {
@@ -67,8 +62,8 @@ body {
 h2 {
   display: flex;
   justify-content: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: 'Bruno Ace SC', cursive;
+  font-size: 2rem;
   padding: 1em;
   text-decoration: underline;
   color: rgb(0, 0, 0);
@@ -106,7 +101,14 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  text-align: center;
+  font-family: 'Bruno Ace SC', cursive;
+}
+
+p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.25rem;
 }
 
 .exit {
