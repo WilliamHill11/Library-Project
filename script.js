@@ -65,32 +65,20 @@ function addBookToLibrary() {
     document.querySelector("input[name='read']").value
   );
   myLibrary.push(newBook);
+  const book = document.createElement('div');
   form.reset();
-  for (let i = 0; i < myLibrary.length; i++) {
-    let perviousItem = '';
-    const currentItem = myLibrary[i];
-    if (currentItem !== perviousItem) {
-      perviousItem = currentItem;
-      const book = document.createElement('div');
-      libraryWrapper.appendChild(book);
-      book.classList.add('book', 'newBookTitle', 'newBookContent');
-      book.innerText = myLibrary[i].title;
-    }
-    // console.log(value.title);
-    // console.log(value.author);
-    // console.log(value.pages);
-    // console.log(value.read);
-  }
-  // myLibrary.forEach((value) => {
-  //   const book = document.createElement('div');
-  //   libraryWrapper.appendChild(book);
-  //   book.classList.add('book', 'newBookTitle', 'newBookContent');
-  //   book.innerText = value.title;
-  //   console.log(value.title);
-  //   console.log(value.author);
-  //   console.log(value.pages);
-  //   console.log(value.read);
-  // });
+  myLibrary.forEach((value) => {
+    libraryWrapper.appendChild(book);
+    book.classList.add('book');
+    book.innerHTML =
+      '<h3>' +
+      value.title +
+      '</h3> <p> Author: ' +
+      value.author +
+      '</p>  <p> Pages: ' +
+      value.pages +
+      '</p>';
+  });
 }
 
 // const book1 = {
