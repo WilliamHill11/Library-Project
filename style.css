@@ -246,3 +246,10 @@ input:checked + .slider:before {
   opacity: 1;
   pointer-events: all;
 }
+
+.deleteBook {
+  position: absolute;
+  margin-left: 6em;
+  margin-top: -1.5em;
+  cursor: pointer;
+}

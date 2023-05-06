@@ -1,5 +1,6 @@
 let log = console.log;
-const closeBook = document.querySelector('.exit');
+const closeForm = document.querySelector('.exit');
+const closeBook = document.querySelector('deleteBook');
 const form = document.querySelector('form');
 const formSubmit = document.getElementById('formSubmit');
 const openButton = document.querySelector('[data-button-target]');
@@ -29,7 +30,7 @@ function closeModal(modal) {
   overlay.classList.remove('active');
 }
 
-closeBook.addEventListener('click', () => {
+closeForm.addEventListener('click', () => {
   form.style.display = 'none';
 });
 
@@ -73,22 +74,26 @@ function addBookToLibrary() {
   myLibrary.push(newBook);
   form.reset();
   const book = document.createElement('div');
+  loopingToLibrary();
 
-  myLibrary.forEach((value) => {
-    libraryWrapper.appendChild(book);
-    book.classList.add('book');
-    book.innerHTML =
-      '<h3>' +
-      value.title +
-      '</h3> <p> Author: ' +
-      value.author +
-      '</p>  <p> Pages: ' +
-      value.pages +
-      '</p> <button class="readingStatus">Status</button>';
-  });
+  function loopingToLibrary() {
+    myLibrary.forEach((value) => {
+      libraryWrapper.appendChild(book);
+      book.classList.add('book');
+      book.innerHTML =
+        '<div class="bookHeader"> <h3>' +
+        value.title +
+        '</h3> <div class="deleteBook" data-close-button >&#10006;</div> </div> <p> Author: ' +
+        value.author +
+        '</p>  <p> Pages: ' +
+        value.pages +
+        '</p> <button class="readingStatus">Status</button>';
+      // closeBook.addEventListener('click', () => {
+      //   console.log('hi');
+      // });
+    });
+  }
 }
-
-newBook.changeReadStatus();
 
 function readStatus() {
   const read = document.querySelector('.readingStatus');
@@ -98,7 +103,6 @@ function readStatus() {
     read.innerHTML = 'Read';
   }
 }
-
 // function isChecked() {
 //   if (document.getElementById('read').checked) {
 //   }
