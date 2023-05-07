@@ -8,6 +8,62 @@ const closeButton = document.querySelector('[data-close-button]');
 const overlay = document.getElementById('overlay');
 const libraryWrapper = document.querySelector('.library');
 
+let myLibrary = [];
+
+let Book = class {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+  changeReadStatus() {
+    this.read = !this.read;
+  }
+};
+
+function addBookToLibrary() {
+  const newBook = new Book(
+    document.querySelector("input[name='bookTitle']").value,
+    document.querySelector("input[name='author']").value,
+    document.querySelector("input[name='pages']").value,
+    document.querySelector("input[name='read']").value
+  );
+
+  myLibrary.push(newBook);
+  form.reset();
+  const book = document.createElement('div');
+  loopingToLibrary();
+
+  function loopingToLibrary() {
+    myLibrary.forEach((value) => {
+      libraryWrapper.appendChild(book);
+      book.classList.add('book');
+      log(value.read);
+      book.innerHTML =
+        '<div class="bookHeader"> <h3>' +
+        value.title +
+        '</h3> <div class="deleteBook" data-close-button >&#10006;</div> </div> <p> Author: ' +
+        value.author +
+        '</p>  <p> Pages: ' +
+        value.pages +
+        '</p> <button class="readingStatus">Status</button>';
+      // closeBook.addEventListener('click', () => {
+      //   console.log('hi');
+      // });
+    });
+  }
+}
+
+function readStatus() {
+  const read = document.querySelector('.readingStatus');
+  if (read.innerHTML === 'Read') {
+    read.innerHTML = 'Not Read';
+  } else {
+    read.innerHTML = 'Read';
+  }
+}
+
 openButton.addEventListener('click', () => {
   const modal = document.querySelector(openButton.dataset.buttonTarget);
   openModal(modal);
@@ -37,7 +93,7 @@ closeForm.addEventListener('click', () => {
 function bookForm() {
   form.style.display = 'block';
 }
-// e.stopImmediatePropagation();
+
 //Prevent form Submit
 formSubmit.addEventListener('click', (e) => {
   if (form.checkValidity()) {
@@ -49,60 +105,6 @@ formSubmit.addEventListener('click', (e) => {
   }
 });
 
-let myLibrary = [];
-
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
-
-Book.prototype.changeReadStatus = function () {
-  this.read = !this.read;
-};
-
-function addBookToLibrary() {
-  const newBook = new Book(
-    document.querySelector("input[name='bookTitle']").value,
-    document.querySelector("input[name='author']").value,
-    document.querySelector("input[name='pages']").value,
-    read
-    // document.querySelector("input[name='read']").value
-  );
-
-  myLibrary.push(newBook);
-  form.reset();
-  const book = document.createElement('div');
-  loopingToLibrary();
-
-  function loopingToLibrary() {
-    myLibrary.forEach((value) => {
-      libraryWrapper.appendChild(book);
-      book.classList.add('book');
-      book.innerHTML =
-        '<div class="bookHeader"> <h3>' +
-        value.title +
-        '</h3> <div class="deleteBook" data-close-button >&#10006;</div> </div> <p> Author: ' +
-        value.author +
-        '</p>  <p> Pages: ' +
-        value.pages +
-        '</p> <button class="readingStatus">Status</button>';
-      // closeBook.addEventListener('click', () => {
-      //   console.log('hi');
-      // });
-    });
-  }
-}
-
-function readStatus() {
-  const read = document.querySelector('.readingStatus');
-  if (read.innerHTML === 'Read') {
-    read.innerHTML = 'Not Read';
-  } else {
-    read.innerHTML = 'Read';
-  }
-}
 // function isChecked() {
 //   if (document.getElementById('read').checked) {
 //   }
