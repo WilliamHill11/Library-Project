@@ -1,6 +1,4 @@
-let log = console.log;
 const closeForm = document.querySelector('.exit');
-const closeBook = document.querySelector('deleteBook');
 const form = document.querySelector('form');
 const formSubmit = document.getElementById('formSubmit');
 const openButton = document.querySelector('[data-button-target]');
@@ -10,58 +8,77 @@ const libraryWrapper = document.querySelector('.library');
 
 let myLibrary = [];
 
-let Book = class {
+class Book {
   constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
   }
-  changeReadStatus() {
-    this.read = !this.read;
-  }
-};
+}
 
 function addBookToLibrary() {
-  const newBook = new Book(
-    document.querySelector("input[name='bookTitle']").value,
-    document.querySelector("input[name='author']").value,
-    document.querySelector("input[name='pages']").value,
-    document.querySelector("input[name='read']").value
+  myLibrary.push(
+    new Book(title.value, author.value, pages.value, read.checked)
   );
-
-  myLibrary.push(newBook);
   form.reset();
-  const book = document.createElement('div');
-  loopingToLibrary();
+  render();
+}
 
-  function loopingToLibrary() {
-    myLibrary.forEach((value) => {
-      libraryWrapper.appendChild(book);
-      book.classList.add('book');
-      log(value.read);
-      book.innerHTML =
-        '<div class="bookHeader"> <h3>' +
-        value.title +
-        '</h3> <div class="deleteBook" data-close-button >&#10006;</div> </div> <p> Author: ' +
-        value.author +
-        '</p>  <p> Pages: ' +
-        value.pages +
-        '</p> <button class="readingStatus">Status</button>';
-      // closeBook.addEventListener('click', () => {
-      //   console.log('hi');
-      // });
-    });
+function render() {
+  const libraryDisplay = document.querySelector('.library');
+  libraryDisplay.innerHTML = '';
+  for (let i = 0; i < myLibrary.length; i++) {
+    createBook(myLibrary[i]);
   }
 }
 
-function readStatus() {
-  const read = document.querySelector('.readingStatus');
-  if (read.innerHTML === 'Read') {
-    read.innerHTML = 'Not Read';
+function createBook(item) {
+  const libraryWrapper = document.querySelector('.library');
+  const book = document.createElement('div');
+  const deleteBook = document.createElement('div');
+  const title = document.createElement('h3');
+  const author = document.createElement('p');
+  const pages = document.createElement('p');
+  const readStatus = document.createElement('button');
+
+  libraryWrapper.append(book);
+  book.classList.add('book');
+
+  deleteBook.innerHTML = '&#10006';
+  deleteBook.classList.add('deleteBtn');
+  book.append(deleteBook);
+
+  deleteBook.addEventListener('click', () => {
+    myLibrary.splice(myLibrary.indexOf(item), 1);
+    render();
+  });
+
+  title.textContent = item.title;
+  title.classList.add('titleBook');
+  book.append(title);
+
+  author.textContent = `Author: ${item.author}`;
+  book.append(author);
+
+  pages.textContent = `Pages: ${item.pages}`;
+  book.append(pages);
+
+  readStatus.textContent = item.read;
+  readStatus.classList.add('readBtn');
+  book.append(readStatus);
+  if (item.read === false) {
+    readStatus.textContent = 'Not Read';
+    readStatus.style.backgroundColor = 'red';
   } else {
-    read.innerHTML = 'Read';
+    readStatus.textContent = 'Read';
+    readStatus.style.backgroundColor = '#63da63';
   }
+
+  readStatus.addEventListener('click', () => {
+    item.read = !item.read;
+    render();
+  });
 }
 
 openButton.addEventListener('click', () => {
@@ -104,10 +121,3 @@ formSubmit.addEventListener('click', (e) => {
     addBookToLibrary();
   }
 });
-
-// function isChecked() {
-//   if (document.getElementById('read').checked) {
-//   }
-// }
-
-/* <label class="switch"> <input type="checkbox"> <span class="slider round"></span></label>' */
