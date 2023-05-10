@@ -17,3 +17,7 @@ Steps for building project:
 - How to manipulate forms to get its user data 
 - Create a form modal 
 - Understanding arrays more 
+
+// What I can improve on 
+- Plan and map out how code will connect with one anohter as well as the styling 
+- Add more responsive designs 
