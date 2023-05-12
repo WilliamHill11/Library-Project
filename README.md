@@ -21,3 +21,4 @@ Steps for building project:
 // What I can improve on 
 - Plan and map out how code will connect with one anohter as well as the styling 
 - Add more responsive designs 
+- Add local storage
