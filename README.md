@@ -19,6 +19,6 @@ Steps for building project:
 - Understanding arrays more 
 
 // What I can improve on 
-- Plan and map out how code will connect with one anohter as well as the styling 
-- Add more responsive designs 
+- Plan and map out how code will connect with one anohter
 - Add local storage
+- Use figma for design
