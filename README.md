@@ -22,3 +22,4 @@ Steps for building project:
 - Plan and map out how code will connect with one anohter
 - Add local storage
 - Use figma for design
+- Creating more specific functions for each individual task
